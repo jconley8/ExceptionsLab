@@ -17,10 +17,19 @@ public class NameService {
      * 
      * @param fullName - a name containing a first name and a last name
      * @return the last name
+     * @throws lab3.EmptyStringException
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws EmptyStringException {
+        if (fullName == null || fullName.isEmpty()) {
+            throw new EmptyStringException("Error: empty or null string entered.");
+        }
+
         String[] nameParts = fullName.split(" ");
-        return nameParts[LAST_NAME_IDX];
+
+        if (nameParts.length < 2 || nameParts.length > 3) {
+            throw new IllegalArgumentException("error");
+        }
+        return nameParts[nameParts.length - 1];
     }
     
     /**

@@ -1,5 +1,7 @@
 package lab3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +20,13 @@ public class InputOutputGui {
     public void startConversation() {
         
         String fullName = JOptionPane.showInputDialog("Enter full name:");
-        String lastName = nameService.extractLastName(fullName);
+        String lastName = null;
+        try {
+            lastName = nameService.extractLastName(fullName);
+        } catch (EmptyStringException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            return;
+        }
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
         
