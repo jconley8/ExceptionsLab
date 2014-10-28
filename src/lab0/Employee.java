@@ -48,6 +48,9 @@ public class Employee {
     }
 
     public final void setDaysVacation(int daysVacation) {
+        if(daysVacation > maxDaysVacation) {
+            throw new IllegalArgumentException();
+        }
         this.daysVacation = daysVacation;
     }
 
@@ -56,6 +59,9 @@ public class Employee {
     }
 
     public final void setFirstName(String firstName) {
+        if(firstName.isEmpty() || firstName == null) {
+            throw new IllegalArgumentException();
+        }
 
         this.firstName = firstName;
     }
@@ -65,7 +71,9 @@ public class Employee {
     }
 
     public final void setHireDate(Date hireDate) {
-
+        if (hireDate == null) {
+            throw new IllegalArgumentException();
+        }
         this.hireDate = hireDate;
     }
 
@@ -74,7 +82,10 @@ public class Employee {
     }
 
     public final void setLastName(String lastName) {
-
+        if(lastName.isEmpty() || lastName == null) {
+            throw new IllegalArgumentException();
+        }
+          
         this.lastName = lastName;
     }
 

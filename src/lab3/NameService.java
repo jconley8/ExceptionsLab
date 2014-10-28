@@ -19,7 +19,7 @@ public class NameService {
      * @return the last name
      * @throws lab3.EmptyStringException
      */
-    public String extractLastName(String fullName) throws EmptyStringException {
+    public String extractLastName(String fullName) throws EmptyStringException, IllegalArgumentException {
         if (fullName == null || fullName.isEmpty()) {
             throw new EmptyStringException("Error: empty or null string entered.");
         }
