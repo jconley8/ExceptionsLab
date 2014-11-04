@@ -20,7 +20,9 @@ public class InputOutputGui {
     public void startConversation() {
         
         String fullName = JOptionPane.showInputDialog("Enter full name:");
+        
         String lastName = null;
+        
         try {
             lastName = nameService.extractLastName(fullName);
         } catch (EmptyStringException ex) {
